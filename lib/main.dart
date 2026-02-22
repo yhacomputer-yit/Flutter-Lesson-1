@@ -10,40 +10,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Row and Column Lesson",
+      title: "Fixed and Expanded Lesson",
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.orange,
-          title: Text("Row and Column"),
+          title: Text("Fixed and Expanded"),
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Container(
-                  width: 100,
-                  height: 100,
-                  color: Colors.orange,
-                ),
-
-                Container(
-                  width: 100,
-                  height: 100,
-                  color: Colors.green,
-                ),
-              ],
-            ) ,
-            SizedBox(height: 20),
-            Container(
-              width: 100,
-              height: 100,
-              color: Colors.blue,
-            )
-          ],
-        )
-        ),
+      ),
     );
   }
 }
