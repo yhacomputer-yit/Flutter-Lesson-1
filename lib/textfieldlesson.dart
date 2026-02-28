@@ -13,27 +13,31 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   @override
-  bool selectData = false;
+   String name = '';
   Widget build(BuildContext context) {
      return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("CheckBox Lesson"),
+          title: Text("TextField Box and Input"),
           backgroundColor: Colors.orange,
         ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-            Checkbox(
-              value: selectData,
-              onChanged: (bool ? value){
+              TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: "Enter your name"
+                ),
+                onChanged: (text){
                   setState(() {
-                    selectData = value ?? false;
+                    name = text;
                   });
-              },
-            ),
-            Text('I am $selectData')
+                },
+              ),
+              SizedBox(height: 20,),
+            Text("Your Data is : $name")
             ],
           )
         ),

@@ -13,27 +13,33 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   @override
-  bool selectData = false;
+  String selectItem = 'Apple';
+  List<String> menuItem = ["Apple","Mango","Orange","Banana"];
   Widget build(BuildContext context) {
      return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("CheckBox Lesson"),
+          title: Text("DropDown Lesson"),
           backgroundColor: Colors.orange,
         ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-            Checkbox(
-              value: selectData,
-              onChanged: (bool ? value){
+             DropdownButton<String>(
+                value: selectItem,
+                items: menuItem.map((String menuData)=>DropdownMenuItem(
+                  value: menuData,
+                  child: Text(menuData),
+                )).toList(),
+                onChanged: (String? newdata) {
                   setState(() {
-                    selectData = value ?? false;
+                    selectItem = newdata!;
                   });
-              },
-            ),
-            Text('I am $selectData')
+                },
+             ),
+              SizedBox(height: 20,),
+            Text("Your Data is : $selectItem")
             ],
           )
         ),
